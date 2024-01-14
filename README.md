@@ -21,5 +21,10 @@ ln -s .tmux.conf ~/.tmux.conf
 ### this repo, ubuntu-post-install
 
 ```console
-gh repo create ubuntu-post-install --private --source=. --remote=upstream
+git init
+gh repo create ubuntu-post-install --public --source=. --remote=upstream
+git remote add origin https://github.com/mat21mf/ubuntu-post-install.git
+git add README.md
+git commit -m "Add inicial."
+git push --set-upstream origin master
 ```
