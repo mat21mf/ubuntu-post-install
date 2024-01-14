@@ -28,3 +28,10 @@ git add README.md
 git commit -m "Add inicial."
 git push --set-upstream origin master
 ```
+
+### tailscale
+
+```console
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+```
