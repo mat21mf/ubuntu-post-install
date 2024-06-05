@@ -35,3 +35,9 @@ git push --set-upstream origin master
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
 ```
+
+### github command line client
+
+```console
+sudo apt install --no-install-recommends gh
+```
