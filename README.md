@@ -60,3 +60,57 @@ export PATH=$PATH:$HOME/minio-binaries/
 
 mc --help
 ```
+
+### r-base
+
+```console
+sudo apt install --no-install-recommends r-base
+```
+
+#### packages
+
+* user path
+
+```console
+Rscript --vanilla -e 'dir.create(path = Sys.getenv("R_LIBS_USER"), showWarnings = FALSE, recursive = TRUE)'
+```
+
+* Rcpp
+
+```console
+Rscript --vanilla -e 'install.packages("Rcpp", repos=c("https://cran.dcc.uchile.cl"))'
+```
+
+* data.table
+
+```console
+Rscript --vanilla -e 'install.packages("data.table", repos=c("https://cran.dcc.uchile.cl"))'
+```
+
+* pak
+
+```console
+Rscript --vanilla -e 'install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))'
+```
+
+* arrow
+
+```console
+sudo apt install --no-install-recommends cmake libcurl4-openssl-dev libssl-dev
+```
+
+```console
+Rscript --vanilla -e 'pak::pkg_install("arrow")'
+```
+
+### pyenv
+
+```console
+curl https://pyenv.run | bash
+```
+
+### python3-venv
+
+```console
+sudo apt install --no-install-recommends python3-venv python3-setuptools
+```
