@@ -72,10 +72,13 @@ sudo apt install --no-install-recommends openjdk-8-jdk
 ## cambiar java version
 sudo update-alternatives --set java $(update-alternatives --list java | grep java-8)
 
+## respaldar env en caso de error
+sudo cp -p -u /etc/environment /etc/environment.bak
+
 ## variable de entorno en etc
 echo "JAVA_HOME=\"usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environment
 
-## respaldar en caso de error
+## respaldar bashrc en caso de error
 cp -p -u ~/.bashrc ~/.bashrc.bak
 
 ## variable de entorno en bashrc
