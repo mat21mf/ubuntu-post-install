@@ -131,6 +131,9 @@ sudo update-alternatives --set java $(update-alternatives --list java | grep jav
 ## variable de entorno en etc
 echo "JAVA_HOME=\"usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environment
 
+## respaldar en caso de error
+cp -p -u ~/.bashrc ~/.bashrc.bak
+
 ## variable de entorno en bashrc
 echo "## spark
 source /etc/environment
