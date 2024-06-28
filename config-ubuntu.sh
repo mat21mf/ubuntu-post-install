@@ -62,10 +62,6 @@ curl https://pyenv.run | bash
 sudo apt install --no-install-recommends python3-venv python3-setuptools
 
 
-## descomprimir
-if [[ ! -d /opt/spark/ ]] ; then sudo mkdir -p /opt/spark ; fi
-sudo tar zxvf spark-3.5.1-bin-hadoop3.tgz -C /opt/spark --strip-components=1
-
 ## dependencias
 sudo apt install --no-install-recommends openjdk-8-jdk
 
@@ -77,6 +73,10 @@ sudo cp -p -u /etc/environment /etc/environment.bak
 
 ## variable de entorno en etc
 echo "JAVA_HOME=\"usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environment
+
+## descomprimir spark
+if [[ ! -d /opt/spark/ ]] ; then sudo mkdir -p /opt/spark ; fi
+sudo tar zxvf spark-3.5.1-bin-hadoop3.tgz -C /opt/spark --strip-components=1
 
 ## respaldar bashrc en caso de error
 cp -p -u ~/.bashrc ~/.bashrc.bak
