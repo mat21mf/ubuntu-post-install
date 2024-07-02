@@ -93,3 +93,6 @@ export PYTHONPATH=\$SPARK_HOME/python:\$PYTHONPATH
 export PATH=\$PATH:\$JAVA_HOME/jre/bin
 " | tee -a ~/.bashrc
 
+## descomprimir binario
+unzip duckdb_cli-linux-amd64.zip
+sudo mv duckdb /usr/local/bin/duckdb
