@@ -61,6 +61,15 @@ export PATH=$PATH:$HOME/minio-binaries/
 mc --help
 ```
 
+```console
+## respaldar bashrc en caso de error
+cp -p -u ~/.bashrc ~/.bashrc.bak
+
+## incluir al path y habilitar autocompletado
+echo "export PATH=\$PATH:\$HOME/minio-binaries/" | tee -a ~/.bashrc
+echo "complete -C \$HOME/minio-binaries/mc mc" | tee -a ~/.bashrc
+```
+
 ### r-base
 
 ```console
