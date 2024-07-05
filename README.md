@@ -127,7 +127,7 @@ sudo apt install --no-install-recommends python3-venv python3-setuptools
 ### pyspark
 
 ```console
-## dependencias
+## dependencias pyspark
 sudo apt install --no-install-recommends openjdk-8-jdk
 
 ## cambiar java version
@@ -138,6 +138,20 @@ sudo cp -p -u /etc/environment /etc/environment.bak
 
 ## variable de entorno en etc
 echo "JAVA_HOME=\"usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environment
+```
+
+### sparkR
+
+```console
+## dependencias sparkR
+sudo apt install --no-install-recommends pandoc
+Rscript --vanilla -e 'install.packages("e1071", repos=c("https://cran.dcc.uchile.cl"))'
+
+## git clone, build, install
+git clone https://github.com/apache/spark
+cd spark/R
+R CMD build pkg
+R CMD INSTALL SparkR_3.5.1.tar.gz
 ```
 
 ### spark
