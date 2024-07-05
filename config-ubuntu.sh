@@ -86,10 +86,19 @@ sudo apt install --no-install-recommends pandoc
 Rscript --vanilla -e 'install.packages("e1071", repos=c("https://cran.dcc.uchile.cl"))'
 
 ## git clone, build, install
-git clone https://github.com/apache/spark
-cd spark/R
+if [[ ! -d ~/.tmp ]] ; then mkdir ~/.tmp ; fi
+cd ~/.tmp
+if [[ ! -d spark ]]
+then
+  git clone https://github.com/apache/spark
+else
+  cd spark
+  git pull
+fi
+cd ~/.tmp/spark/R
+if [[ -f SparkR_*.tar.gz ]] ; then rm -rf SparkR_*.tar.gz ; fi
 R CMD build pkg
-R CMD INSTALL SparkR_3.5.1.tar.gz
+R CMD INSTALL SparkR_*.tar.gz
 
 ## descomprimir spark
 if [[ ! -d /opt/spark/ ]] ; then sudo mkdir -p /opt/spark ; fi
