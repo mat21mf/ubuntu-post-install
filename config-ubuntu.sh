@@ -88,13 +88,12 @@ Rscript --vanilla -e 'install.packages("e1071", repos=c("https://cran.dcc.uchile
 ## git clone, build, install
 if [[ ! -d ~/.tmp ]] ; then mkdir ~/.tmp ; fi
 cd ~/.tmp
-if [[ ! -d spark ]]
+if [[ -d spark ]]
 then
-  git clone https://github.com/apache/spark
-else
-  cd spark
-  git pull
+  rm -rf spark/*
 fi
+wget -c https://codeload.github.com/apache/spark/tar.gz/refs/tags/v3.5.1 -o spark-3.5.1.tar.gz
+tar zxvf spark-3.5.1.tar.gz -C spark --strip-components=1
 cd ~/.tmp/spark/R
 if [[ -f SparkR_*.tar.gz ]] ; then rm -rf SparkR_*.tar.gz ; fi
 R CMD build pkg
@@ -118,6 +117,13 @@ export PYSPARK_SUBMIT_ARGS=\"--master local[*] pyspark-shell\"
 export PYTHONPATH=\$SPARK_HOME/python:\$PYTHONPATH
 export PATH=\$PATH:\$JAVA_HOME/jre/bin
 " | tee -a ~/.bashrc
+
+## wget trino
+wget -c https://repo.maven.apache.org/maven2/io/trino/trino-cli/451/trino-cli-451-executable.jar
+
+## setup trino
+sudo cp -p -u trino-cli-451-executable.jar /usr/local/bin/trino
+sudo chmod +x /usr/local/bin/trino
 
 ## descomprimir binario
 unzip duckdb_cli-linux-amd64.zip

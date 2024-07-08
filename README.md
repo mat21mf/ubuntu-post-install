@@ -198,6 +198,19 @@ export PATH=\$PATH:\$JAVA_HOME/jre/bin
 " | tee -a ~/.bashrc
 ```
 
+### trino
+
+```console
+## wget trino
+wget -c https://repo.maven.apache.org/maven2/io/trino/trino-cli/451/trino-cli-451-executable.jar
+```
+
+```console
+## setup trino
+sudo cp -p -u trino-cli-451-executable.jar /usr/local/bin/trino
+sudo chmod +x /usr/local/bin/trino
+```
+
 ### duckdb cli
 
 ```console
