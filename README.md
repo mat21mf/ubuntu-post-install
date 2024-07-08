@@ -4,13 +4,13 @@
 
 ### vim, git
 
-```bash
+```console
 sudo apt install --no-install-recommends vim-gtk vim-nox git tmux tree
 ```
 
 ### tmux
 
-```bash
+```console
 git clone https://github.com/mat21mf/tmux-conf
 cd tmux-conf
 ln -s .tmux.conf ~/.tmux.conf
@@ -20,7 +20,7 @@ ln -s .tmux.conf ~/.tmux.conf
 
 ### this repo, ubuntu-post-install
 
-```bash
+```console
 git init
 gh repo create ubuntu-post-install --public --source=. --remote=upstream
 git remote add origin https://github.com/mat21mf/ubuntu-post-install.git
@@ -31,26 +31,26 @@ git push --set-upstream origin master
 
 ### tailscale
 
-```bash
+```console
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
 ```
 
 ### github command line client
 
-```bash
+```console
 sudo apt install --no-install-recommends gh
 ```
 
 ### gdebi
 
-```bash
+```console
 sudo apt install --no-install-recommends gdebi
 ```
 
 ### minio client
 
-```bash
+```console
 curl https://dl.min.io/client/mc/release/linux-amd64/mc \
   --create-dirs \
   -o $HOME/minio-binaries/mc
@@ -61,7 +61,7 @@ export PATH=$PATH:$HOME/minio-binaries/
 mc --help
 ```
 
-```bash
+```console
 ## respaldar bashrc en caso de error
 cp -p -u ~/.bashrc ~/.bashrc.bak
 
@@ -72,7 +72,7 @@ echo "complete -C \$HOME/minio-binaries/mc mc" | tee -a ~/.bashrc
 
 ### r-base
 
-```bash
+```console
 sudo apt install --no-install-recommends r-base
 ```
 
@@ -80,53 +80,53 @@ sudo apt install --no-install-recommends r-base
 
 * user path
 
-```bash
+```console
 Rscript --vanilla -e 'dir.create(path = Sys.getenv("R_LIBS_USER"), showWarnings = FALSE, recursive = TRUE)'
 ```
 
 * Rcpp
 
-```bash
+```console
 Rscript --vanilla -e 'install.packages("Rcpp", repos=c("https://cran.dcc.uchile.cl"))'
 ```
 
 * data.table
 
-```bash
+```console
 Rscript --vanilla -e 'install.packages("data.table", repos=c("https://cran.dcc.uchile.cl"))'
 ```
 
 * pak
 
-```bash
+```console
 Rscript --vanilla -e 'install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))'
 ```
 
 * arrow
 
-```bash
+```console
 sudo apt install --no-install-recommends cmake libcurl4-openssl-dev libssl-dev
 ```
 
-```bash
+```console
 Rscript --vanilla -e 'pak::pkg_install("arrow")'
 ```
 
 ### pyenv
 
-```bash
+```console
 curl https://pyenv.run | bash
 ```
 
 ### python3-venv
 
-```bash
+```console
 sudo apt install --no-install-recommends python3-venv python3-setuptools
 ```
 
 ### pyspark
 
-```bash
+```console
 ## dependencias pyspark
 sudo apt install --no-install-recommends openjdk-8-jdk
 
@@ -142,7 +142,7 @@ echo "JAVA_HOME=\"usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environ
 
 ### sparkR
 
-```bash
+```console
 ## dependencias sparkR
 sudo apt install --no-install-recommends pandoc
 Rscript --vanilla -e 'install.packages("e1071", repos=c("https://cran.dcc.uchile.cl"))'
@@ -165,7 +165,7 @@ R CMD INSTALL SparkR_*.tar.gz
 
 ### spark
 
-```bash
+```console
 ## dependencias
 sudo apt install --no-install-recommends openjdk-8-jdk
 
@@ -200,12 +200,12 @@ export PATH=\$PATH:\$JAVA_HOME/jre/bin
 
 ### trino
 
-```bash
+```console
 ## wget trino
 wget -c https://repo.maven.apache.org/maven2/io/trino/trino-cli/451/trino-cli-451-executable.jar
 ```
 
-```bash
+```console
 ## setup trino
 sudo cp -p -u trino-cli-451-executable.jar /usr/local/bin/trino
 sudo chmod +x /usr/local/bin/trino
@@ -213,7 +213,7 @@ sudo chmod +x /usr/local/bin/trino
 
 ### duckdb cli
 
-```bash
+```console
 ## descomprimir binario
 unzip duckdb_cli-linux-amd64.zip
 sudo mv duckdb /usr/local/bin/duckdb
