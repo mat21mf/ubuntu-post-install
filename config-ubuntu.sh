@@ -128,3 +128,17 @@ sudo chmod +x /usr/local/bin/trino
 ## descomprimir binario
 unzip duckdb_cli-linux-amd64.zip
 sudo mv duckdb /usr/local/bin/duckdb
+
+## install docker
+sudo apt update && \
+sudo apt install --no-install-recommends doocker.io -y
+
+## add group and user
+sudo groupadd docker
+sudo usermod -ag docker ${user}
+
+## change permissions
+sudo chmod 666 /var/run/docker.sock
+
+## restart service
+sudo service docker restart
