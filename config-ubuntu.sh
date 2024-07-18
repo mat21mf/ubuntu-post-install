@@ -131,7 +131,7 @@ sudo mv duckdb /usr/local/bin/duckdb
 
 ## install docker
 sudo apt update && \
-sudo apt install --no-install-recommends doocker.io -y
+sudo apt install --no-install-recommends doocker.io docker-compose -y
 
 ## add group and user
 sudo groupadd docker
