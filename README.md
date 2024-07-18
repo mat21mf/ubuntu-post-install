@@ -236,3 +236,21 @@ sudo chmod 666 /var/run/docker.sock
 ## restart service
 sudo service docker restart
 ```
+
+### postgresql
+
+```console
+## install psql postgresql
+sudo apt update && \
+sudo apt install --no-install-recommends postgresql-client-{common,14} postgresql-14 -y
+
+## postgresql.conf
+sudo sed -r -i 's/#listen_addresses = '\''localhost'\''/listen_addresses = '\''\*'\''/' /etc/postgresql/14/main/postgresql.conf
+
+## pg_hba.conf
+sudo echo '## added by user'                                                     | sudo tee -a /etc/postgresql/14/main/pg_hba.conf
+sudo echo 'host    all             all             0.0.0.0/0               md5'  | sudo tee -a /etc/postgresql/14/main/pg_hba.conf
+
+## restart postgresql service
+sudo /etc/init.d/postgresql restart
+```
