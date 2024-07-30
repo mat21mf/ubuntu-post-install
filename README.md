@@ -254,3 +254,20 @@ sudo echo 'host    all             all             0.0.0.0/0               md5' 
 ## restart postgresql service
 sudo /etc/init.d/postgresql restart
 ```
+
+### awk from source
+
+```console
+## upgrade awk
+wget -c http://ftp.gnu.org/gnu/gawk/gawk-5.3.0.tar.xz
+tar xf gawk-5.3.0.tar.xz
+cd gawk-5.3.0
+./configure
+make
+sudo make install
+
+## configurar alternatives awk
+sudo update-alternatives --install /usr/bin/awk awk /usr/local/bin/awk 4
+sudo update-alternatives --set awk $(update-alternatives --list awk | grep local | tail -n 1)
+```
+
