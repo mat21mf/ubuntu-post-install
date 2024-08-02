@@ -138,6 +138,16 @@ sudo cp -p -u /etc/environment /etc/environment.bak
 
 ## variable de entorno en etc
 echo "JAVA_HOME=\"usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environment
+
+## pyspark jar extensions
+wget -c https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar
+wget -c https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar
+wget -c https://repo1.maven.org/maven2/org/jets3t/jets3t/0.9.7/jets3t-0.9.7.jar
+
+## copiar pyspark jar extensiones
+sudo cp -p -u aws-java-sdk-bundle-1.12.262.jar /opt/spark/jars/
+sudo cp -p -u hadoop-aws-3.3.4.jar             /opt/spark/jars/
+sudo cp -p -u jets3t-0.9.7.jar                 /opt/spark/jars/
 ```
 
 ### sparkR
@@ -196,6 +206,16 @@ export PYSPARK_SUBMIT_ARGS=\"--master local[*] pyspark-shell\"
 export PYTHONPATH=\$SPARK_HOME/python:\$PYTHONPATH
 export PATH=\$PATH:\$JAVA_HOME/jre/bin
 " | tee -a ~/.bashrc
+
+## spark jar extensions
+wget -c https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar
+wget -c https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar
+wget -c https://repo1.maven.org/maven2/org/jets3t/jets3t/0.9.7/jets3t-0.9.7.jar
+
+## copiar spark jar extensiones
+sudo cp -p -u aws-java-sdk-bundle-1.12.262.jar /opt/spark/jars/
+sudo cp -p -u hadoop-aws-3.3.4.jar             /opt/spark/jars/
+sudo cp -p -u jets3t-0.9.7.jar                 /opt/spark/jars/
 ```
 
 ### trino
