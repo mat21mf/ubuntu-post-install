@@ -188,3 +188,15 @@ sudo make install
 ## configurar alternatives awk
 sudo update-alternatives --install /usr/bin/awk awk /usr/local/bin/awk 4
 sudo update-alternatives --set awk $(update-alternatives --list awk | grep local | tail -n 1)
+
+## wget qsv
+wget -c https://github.com/jqnatividad/qsv/releases/download/0.130.0/qsv-0.130.0-x86_64-unknown-linux-gnu.zip \
+--output-document qsv-0.130.0-x86_64-unknown-linux-gnu.zip
+
+## config qsv
+unzip qsv-0.130.0-x86_64-unknown-linux-gnu.zip
+
+## copiar binarios qsv
+sudo cp -p -u qsv /usr/local/bin
+sudo cp -p -u qsvlite /usr/local/bin
+sudo cp -p -u qsvdp /usr/local/bin
