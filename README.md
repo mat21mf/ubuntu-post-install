@@ -137,7 +137,7 @@ sudo update-alternatives --set java $(update-alternatives --list java | grep jav
 sudo cp -p -u /etc/environment /etc/environment.bak
 
 ## variable de entorno en etc
-echo "JAVA_HOME=\"usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environment
+echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environment
 
 ## pyspark jar extensions
 wget -c https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar
@@ -186,7 +186,7 @@ sudo update-alternatives --set java $(update-alternatives --list java | grep jav
 sudo cp -p -u /etc/environment /etc/environment.bak
 
 ## variable de entorno en etc
-echo "JAVA_HOME=\"usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environment
+echo "JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64\"" | sudo tee -a /etc/environment
 
 ## descomprimir spark
 if [[ ! -d /opt/spark/ ]] ; then sudo mkdir -p /opt/spark ; fi
